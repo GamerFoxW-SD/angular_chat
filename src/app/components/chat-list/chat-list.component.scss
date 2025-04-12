@@ -1,0 +1,73 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .demo-section + .demo-section {
+    margin-top: 16px;
+  }
+
+  .chat-list-container {
+    padding: 1rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    mat-list {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 0.5rem;
+  
+      mat-list-item {
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+  
+        div {
+          padding: 0.5rem;
+          font-size: 1.1rem;
+          font-weight: 500;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+  
+        &:hover {
+          background-color: #f1f1f1;
+          border-radius: 8px;
+        }
+  
+        &[ng-reflect-ng-click] {
+          user-select: none;
+        }
+      }
+  
+      mat-divider {
+        margin: 0.25rem 0;
+      }
+    }
+  }
+  
+  /* Mobilbarát nézet */
+  @media (max-width: 600px) {
+    .chat-list-container {
+      padding: 1rem;
+  
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  
+  mat-list-item.active {
+    background-color: #e0f7fa;
+    border-radius: 8px;
+  }
+  

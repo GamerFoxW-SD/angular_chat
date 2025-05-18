@@ -49,15 +49,16 @@ export class LoginComponent {
   }
 
   onLogin(): void {
-    if (this.chatService.getCurrentUserId() > 0) {
+    /*if (this.chatService.getCurrentUserId() > 0) {
       this.router.navigate(['/chat-list']);
-    }
+    }*/
     if (this.email_input.trim()) {
       this.chatService.setUser(this.email_input, this.pass_input);
-      // Például navigálhatsz is a chathez:
-      // this.router.navigate(['/chat']);
+      
       console.log('Bejelentkezett felhasználó:', this.email_input);
     }
   }
+
+  
 
 }

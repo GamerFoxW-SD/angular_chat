@@ -1,16 +1,12 @@
 <div>
     <h1>Chat szobák</h1>
+     <button mat-raised-button color="primary" [routerLink]="['/chat-create']">
+      Új szoba
+    </button>
     <mat-list>
      @for (item of chatRooms; track item) { 
-      <!--li (click)="selectRoom(item.id)">
-       
-        <strong>{{ item | roomName:getUserById  }}</strong>
-
-      </li-->
       
-     
-      
-      <mat-list-item (click)="selectRoom(item.id)"> <div matBadge={{messages_db(item.id)}} >{{ item | roomName:getUserById  }}</div></mat-list-item>
+      <mat-list-item (click)="selectRoom(item.id)"> <div matBadge={{messages_db(item.id)}} >{{ item |roomName    }}</div></mat-list-item>
       <mat-divider></mat-divider>
     }
   </mat-list>

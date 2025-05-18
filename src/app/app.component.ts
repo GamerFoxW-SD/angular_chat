@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ChatService } from './services/chat.service';  // importáld a szolgáltatást
-import { ChatRoom } from './models/chat-rooms.model';
+
 import { RouterOutlet } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 
 

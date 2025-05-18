@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform,inject } from '@angular/core';
-import {User} from '../models/user.model'
-import {ChatRoom} from '../models/chat-rooms.model'
+import {User} from '../models/fire-user.model'
+import {ChatRoom} from '../models/fire-rooms.model'
 import { ChatService } from '../services/chat.service';
 
 @Pipe({
@@ -12,15 +12,17 @@ export class RoomNamePipe implements PipeTransform {
  // constructor(private chatService: ChatService) {}
  private chatService = inject(ChatService);
 
-  transform(room: ChatRoom, getUserById: (id: number) => User | undefined): string {
-    if (room.name !== undefined) {
+  transform(room: ChatRoom): string {
+    if (room.name !== undefined && room.name !== "" && room.name !== null) {
+   
       return room.name;
     }
 
-    const participantNames = room.participantIds
-      .map(id => getUserById(id)?.username)
-      .filter(name => !!name)
+    let participantNames = room.participantIds
+      .map(id => this.chatService.getUserName(id))
+      .filter(nev => !!nev)
       .join(', ');
+
 
     return participantNames || 'My Chat';
   }

@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>Új Chat Szoba Létrehozása</mat-card-title>
+  <mat-card-content [formGroup]="roomForm">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Szoba neve</mat-label>
+      <input matInput formControlName="name" placeholder="Pl. Baráti csoport">
+      
+    </mat-form-field>
+
+    <!-- Később ide jöhet majd felhasználó kiválasztás is -->
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="createRoom()" >
+      Létrehozás
+    </button>
+  </mat-card-actions>
+</mat-card>

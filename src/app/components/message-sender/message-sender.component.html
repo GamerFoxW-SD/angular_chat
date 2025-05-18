@@ -1,9 +1,12 @@
  
-  @if(selectedRoom>0  ){<div>
-  <h2>Üzenetek - {{ room | roomName:getUserById  }}</h2>
-  
+  @if(selectedRoom!=""  ){<div>
+ <div id="fejlec"> <h2>Üzenetek - {{ room | roomName }}</h2>
+  <a [routerLink]="['/add-users', selectedRoom]">
+  <button mat-button color="accent">Felhasználók hozzáadása</button>
+</a></div>
+<div style="height: 10px;display: block;margin: 6%;width: 80%;"></div>
   <!-- Üzenetek listázása -->
- @for (message of messages; track message) {
+ @for (message of messages; track $index) {
   <!--div>
     <p><strong>{{ getUserById(message.senderId)?.username }}:</strong> {{ message.content }}</p>
   </div-->
@@ -28,7 +31,8 @@
 }@else{<mat-card>
   <mat-card-header>
     <div mat-card-avatar></div>
-    <mat-card-title>{{ getUserById(message.senderId)?.username }}</mat-card-title>
+    <mat-card-title>{{ getUserName(message.senderId) }}</mat-card-title>
+
     
   </mat-card-header>
   <div mat-card-image></div>
@@ -48,6 +52,8 @@
 
   <!-- Üzenet küldése -->
   <div id="uj_uzenetbar">
+    
+
     <!--input [(ngModel)]="newMessage" placeholder="Írj üzenetet..." /-->
     <mat-form-field >
       <mat-label>üzenetet...</mat-label>

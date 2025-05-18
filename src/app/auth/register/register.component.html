@@ -1,16 +1,20 @@
-<div class="example-container">
-    <mat-form-field>
+<form class="example-container" (ngSubmit)="register()">
+    
+  <mat-form-field>
         <mat-label>Név</mat-label>
-        <input matInput>
+        <input matInput  [(ngModel)]="nev_text"
+      name="nev_text">
       </mat-form-field>
 
 
     <mat-form-field>
       <mat-label>Enter your email</mat-label>
       <input
+      [(ngModel)]="email_text"
+      name="email_text"
         matInput
         placeholder="pat@example.com"
-        [formControl]="email"
+       
         (blur)="updateErrorMessage()"
         required
       />
@@ -22,7 +26,7 @@
   
     <mat-form-field>
       <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide() ? 'password' : 'text'" />
+      <input  matInput [type]="hide() ? 'password' : 'text'" [(ngModel)]="password_text" name="password_text"/>
       <button
         mat-icon-button
         matSuffix
@@ -51,5 +55,5 @@
   
     <button mat-flat-button>Regisztrál</button>
     <!-- <button mat-flat-button disabled>Disabled</button>-->
-  </div>
+</form>
   
